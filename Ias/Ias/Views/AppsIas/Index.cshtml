@@ -1,0 +1,33 @@
+@using System.Runtime.InteropServices
+@using System.Runtime.InteropServices.ComTypes
+@using Ias.Models
+@model System.Collections.Generic.List<Ias.Models.AppIas>
+
+@{
+    ViewBag.Title = "Mis Apps";
+ 
+}
+
+<h2>Apps con IA</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>        
+        <th>Fecha Creacion</th>
+        <th>URL</th>
+    </tr>
+    @foreach (AppIas app in Model)
+    {
+        <tr>
+            <td>@app.Id</td>
+            <td><@app.Nombre</td>
+            <td>@app.Descripcion</td>
+            <td>@app.FechaCreacion</td>
+            <td>@app.Url</td>
+            <td>@Html.ActionLink("Editar", "Edit", new {Id = app.Id)</td>
+        </tr>
+    }
+
+</table>
+
